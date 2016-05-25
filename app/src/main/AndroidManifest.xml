@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.myfirstapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.homework1_helloword_activity">
+        </activity>
+        <activity android:name=".activity.homework5_drawxin_activity">
+        </activity>
+        <activity android:name=".activity.homework_tanqiu_moveair_activity">
+        </activity>
+        <activity android:name=".activity.homework6_qq_activity">
+        </activity>
+        <activity android:name=".activity.homework6_login_activity">
+        </activity>
+        <activity android:name=".activity.homework7_nihong_activity">
+        </activity>
+        <activity android:name=".activity.homework11_radio_activity">
+        </activity>
+        <activity android:name=".activity.homework_api_caipu_activity">
+
+        </activity>
+        <activity android:name=".activity.homework_api_caipu_info_activity">
+        </activity>
+        <activity android:name=".activity.homework4_imgchange_activity">
+        </activity>
+        <activity android:name=".activity.homework_gotoTEL_activity">
+        </activity>
+        <activity android:name=".activity.homework_api_guishu_activity">
+        </activity>
+        <activity android:name=".activity.homework_seekbar_activity">
+        </activity>
+        <activity android:name=".activity.test">
+        </activity>
+        <activity android:name=".activity.homework_duoxuan_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
