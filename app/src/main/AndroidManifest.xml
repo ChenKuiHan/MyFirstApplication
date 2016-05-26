@@ -10,26 +10,47 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.homework_main_activity">
+
+        </activity>
         <activity android:name=".activity.homework1_helloword_activity">
+        </activity>
+        <activity android:name=".activity.homework2_img_activity">
+
+        </activity>
+        <activity android:name=".activity.homework3_phoneinfo_activity">
+        </activity>
+        <activity android:name=".activity.homework4_imgchange_activity">
         </activity>
         <activity android:name=".activity.homework5_drawxin_activity">
         </activity>
         <activity android:name=".activity.homework_tanqiu_moveair_activity">
         </activity>
         <activity android:name=".activity.homework6_qq_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.homework6_tel_activity">
         </activity>
         <activity android:name=".activity.homework6_login_activity">
         </activity>
         <activity android:name=".activity.homework7_nihong_activity">
         </activity>
+        <activity android:name=".activity.homework8_shizi_activity">
+        </activity>
+        <activity android:name=".activity.homework10_qq_activity">
+        </activity>
+        <activity android:name=".activity.homework10_sousuo_activity">
+        </activity>
         <activity android:name=".activity.homework11_radio_activity">
         </activity>
+        <activity android:name=".activity.homework15_imgchangealpha_activity">
+        </activity>
         <activity android:name=".activity.homework_api_caipu_activity">
-
         </activity>
         <activity android:name=".activity.homework_api_caipu_info_activity">
-        </activity>
-        <activity android:name=".activity.homework4_imgchange_activity">
         </activity>
         <activity android:name=".activity.homework_gotoTEL_activity">
         </activity>
@@ -40,10 +61,9 @@
         <activity android:name=".activity.test">
         </activity>
         <activity android:name=".activity.homework_duoxuan_activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <!--<activity android:name=".activity.BaseActivity">-->
+            <!---->
+        <!--</activity>-->
     </application>
 </manifest>
