@@ -13,6 +13,5 @@ public class homework_autochangelanguange_activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.autochangelanguage);
-
     }
 }
