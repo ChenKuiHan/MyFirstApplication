@@ -15,7 +15,7 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by Administrator on 16-5-23.
  */
-public class homework_seekbar_activity extends Activity {
+public class homework_seekbar_activity extends BaseActivity {
     ImageView iv;
     ProgressBar pb;
     ProgressBar pb1;
@@ -33,8 +33,7 @@ public class homework_seekbar_activity extends Activity {
         }
     };
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_seekbar);
         iv= (ImageView) findViewById(R.id.img);
         pb= (ProgressBar) findViewById(R.id.progressBar4);

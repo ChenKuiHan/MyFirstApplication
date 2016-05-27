@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.homework_main_activity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.homework1_helloword_activity">
         </activity>
@@ -27,10 +30,7 @@
         <activity android:name=".activity.homework_tanqiu_moveair_activity">
         </activity>
         <activity android:name=".activity.homework6_qq_activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".activity.homework6_tel_activity">
         </activity>
@@ -61,6 +61,8 @@
         <activity android:name=".activity.test">
         </activity>
         <activity android:name=".activity.homework_duoxuan_activity">
+        </activity>
+        <activity android:name=".activity.homework_autochangelanguange_activity">
         </activity>
         <!--<activity android:name=".activity.BaseActivity">-->
             <!---->

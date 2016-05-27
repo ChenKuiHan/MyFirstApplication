@@ -8,10 +8,9 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by eternl on 2016/5/21.
  */
-public class homework8_shizi_activity extends Activity {
+public class homework8_shizi_activity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.homework8);
+    protected void contectview(Bundle savedInstanceState) {
+         setContentView(R.layout.homework8);
     }
 }

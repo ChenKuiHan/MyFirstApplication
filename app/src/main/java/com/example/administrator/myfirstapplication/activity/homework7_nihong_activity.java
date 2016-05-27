@@ -14,7 +14,7 @@ import java.util.TimerTask;
 /**
  * Created by Administrator on 16-5-16.
  */
-public class homework7_nihong_activity extends Activity {
+public class homework7_nihong_activity extends BaseActivity {
 
     Handler h=new Handler(){
         @Override
@@ -38,9 +38,8 @@ public class homework7_nihong_activity extends Activity {
     Timer t=new Timer();
     boolean flag=true;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.homework7nihong);
+    protected void contectview(Bundle savedInstanceState) {
+         setContentView(R.layout.homework7nihong);
 
         if(flag){
             flag=false;

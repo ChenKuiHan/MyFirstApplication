@@ -21,7 +21,7 @@ import java.net.URL;
 /**
  * Created by eternal on 2016/5/21.
  */
-public class homework_api_guishu_activity extends Activity{
+public class homework_api_guishu_activity extends BaseActivity{
     EditText et;
     String s;
     TextView tv;
@@ -40,8 +40,7 @@ public class homework_api_guishu_activity extends Activity{
         }
     };
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_guishu);
         et= (EditText) findViewById(R.id.input);
         tv= (TextView) findViewById(R.id.textView2);

@@ -15,12 +15,11 @@ import java.util.List;
 /**
  * Created by Administrator on 16-5-25.
  */
-public class homework_duoxuan_activity extends Activity{
+public class homework_duoxuan_activity extends BaseActivity{
     String[] s=new String[]{"语","数","外","物","化"};
     boolean[] bb;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_duoxuan);
     }
     public void show(View view){

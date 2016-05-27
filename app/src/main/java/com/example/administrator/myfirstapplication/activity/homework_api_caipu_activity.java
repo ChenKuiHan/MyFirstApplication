@@ -40,7 +40,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 16-5-18.
  */
-public class homework_api_caipu_activity extends Activity {
+public class homework_api_caipu_activity extends BaseActivity {
     EditText et;
     Button btn;
     TextView tt;
@@ -157,8 +157,7 @@ public class homework_api_caipu_activity extends Activity {
         }
     }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.selectcai);
         et= (EditText) findViewById(R.id.inputtext);
         btn= (Button) findViewById(R.id.select);

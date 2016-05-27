@@ -9,11 +9,10 @@ import com.example.administrator.myfirstapplication.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class homework1_helloword_activity extends AppCompatActivity {
+public class homework1_helloword_activity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
     }
 

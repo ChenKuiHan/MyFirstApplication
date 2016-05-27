@@ -16,10 +16,9 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by Administrator on 16-5-17.
  */
-public class homework11_radio_activity extends Activity {
+public class homework11_radio_activity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.radio);
         RadioGroup rp1= (RadioGroup) findViewById(R.id.radiogroup1);
         rp1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){

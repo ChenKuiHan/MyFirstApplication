@@ -17,10 +17,10 @@ import java.util.Map;
 /**
  * Created by Administrator on 16-5-24.
  */
-public class homework_api_caipu_info_activity extends Activity {
+public class homework_api_caipu_info_activity extends BaseActivity {
     Bitmap bm;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void contectview(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homework_api_caipu_info);
         Bundle b=getIntent().getBundleExtra("a");

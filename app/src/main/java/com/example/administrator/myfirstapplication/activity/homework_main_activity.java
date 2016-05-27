@@ -38,10 +38,16 @@ public class homework_main_activity extends Activity {
         list.add("十字图片");
         list.add("仿qq2");
         list.add("搜索");
-        list.add("单选复选按钮");
+        list.add("单选复选/验证码按钮");
         list.add("图片改变透明度");
         list.add("api查菜谱");
         list.add("api查归属地");
+        list.add("dailog多选");
+        list.add("转到通讯录");
+        list.add("bar");
+        list.add("弹球");
+        list.add("自动改变语言");
+
 
         ArrayAdapter<String> aa = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, list);
         lv.setAdapter(aa);
@@ -112,6 +118,26 @@ public class homework_main_activity extends Activity {
                     case 15:
                         Intent i15 = new Intent(homework_main_activity.this, homework_api_guishu_activity.class);
                         startActivity(i15);
+                        break;
+                    case 16:
+                        Intent i16 = new Intent(homework_main_activity.this, homework_duoxuan_activity.class);
+                        startActivity(i16);
+                        break;
+                    case 17:
+                        Intent i17 = new Intent(homework_main_activity.this, homework_gotoTEL_activity.class);
+                        startActivity(i17);
+                        break;
+                    case 18:
+                        Intent i18 = new Intent(homework_main_activity.this, homework_seekbar_activity.class);
+                        startActivity(i18);
+                        break;
+                    case 19:
+                        Intent i19 = new Intent(homework_main_activity.this, homework_tanqiu_moveair_activity.class);
+                        startActivity(i19);
+                        break;
+                    case 20:
+                        Intent i20 = new Intent(homework_main_activity.this, homework_autochangelanguange_activity.class);
+                        startActivity(i20);
                         break;
                 }
             }

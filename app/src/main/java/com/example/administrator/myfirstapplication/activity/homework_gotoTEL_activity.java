@@ -12,10 +12,9 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by eternl on 2016/5/21.
  */
-public class homework_gotoTEL_activity extends Activity {
+public class homework_gotoTEL_activity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_gototel);
         ImageView iv= (ImageView) findViewById(R.id.imageView2);
         iv.setOnClickListener(new View.OnClickListener() {

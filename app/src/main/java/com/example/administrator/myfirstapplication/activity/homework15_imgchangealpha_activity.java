@@ -8,10 +8,9 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by Administrator on 16-5-18.
  */
-public class homework15_imgchangealpha_activity extends Activity {
+public class homework15_imgchangealpha_activity extends BaseActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework15);
     }
 }

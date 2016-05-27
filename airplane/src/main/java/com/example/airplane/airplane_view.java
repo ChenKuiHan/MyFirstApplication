@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
@@ -19,14 +20,12 @@ import java.util.List;
  */
 public class airplane_view extends View implements View.OnTouchListener {
 
-    float cx;
-    float cy;
-    float ax;
-    float ay;
-    float dx;
-    float dy;
+    float cx,cy,ax,ay,dx,dy;
+    float by=0;
     Bitmap airplane;
     Bitmap bullet;
+    Bitmap background;
+    Matrix m;
     boolean flag = true;
     boolean flag2 = true;
     List<bullet_bean> list = new ArrayList<bullet_bean>();
@@ -44,6 +43,10 @@ public class airplane_view extends View implements View.OnTouchListener {
                     }
                 }
             }
+            by+=1;
+            if (by>100){
+                by=0;
+            }
             invalidate();
         }
     };
@@ -58,8 +61,10 @@ public class airplane_view extends View implements View.OnTouchListener {
     public airplane_view(Context context, int width, int height) {
         super(context);
         airplane = BitmapFactory.decodeResource(getResources(), R.drawable.plane);
-
+        background=BitmapFactory.decodeResource(getResources(),R.drawable.back);
         bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet_04);
+        m=new Matrix();
+        m.setScale(6,7);
 //        airplane.setWidth(50);
 //        airplane.setHeight(50);
         cx = width / 2 - airplane.getWidth() / 2;
@@ -75,8 +80,9 @@ public class airplane_view extends View implements View.OnTouchListener {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint p = new Paint();
+        Bitmap bitmap=Bitmap.createBitmap(background,0,(int)by,200,300,m,true);
+        canvas.drawBitmap(bitmap,0,0,p);
         canvas.drawBitmap(airplane, cx, cy, p);
-
         if (flag) {
             flag = false;
             (new Thread() {
@@ -136,7 +142,7 @@ public class airplane_view extends View implements View.OnTouchListener {
                         m.what = 1;
                         h.sendMessage(m);
                         try {
-                            sleep(10);
+                            sleep(20);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

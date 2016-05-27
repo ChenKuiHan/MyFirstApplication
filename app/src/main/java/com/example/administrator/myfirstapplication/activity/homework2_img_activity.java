@@ -11,11 +11,12 @@ import com.example.administrator.myfirstapplication.R;
  */
 public class homework2_img_activity extends BaseActivity {
 
-
     @Override
-    void contectview(Bundle savedInstanceState) {
+   protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework2);
         ImageView iv= (ImageView) findViewById(R.id.img);
         iv.setImageResource(R.drawable.airplane);
     }
+
+
 }
