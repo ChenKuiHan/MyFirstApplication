@@ -11,6 +11,5 @@ public class homework9_calculator_activity extends BaseActivity {
     @Override
     protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework9);
-
     }
 }

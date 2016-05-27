@@ -40,6 +40,8 @@
         </activity>
         <activity android:name=".activity.homework8_shizi_activity">
         </activity>
+        <activity android:name=".activity.homework9_calculator_activity">
+        </activity>
         <activity android:name=".activity.homework10_qq_activity">
         </activity>
         <activity android:name=".activity.homework10_sousuo_activity">
