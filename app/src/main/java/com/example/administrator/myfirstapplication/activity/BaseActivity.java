@@ -23,8 +23,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         contectview(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(0xff999999);
         setSupportActionBar(toolbar);
+        toolbar.setBackgroundColor(0xff999999);
         getSupportActionBar().setTitle("homework");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

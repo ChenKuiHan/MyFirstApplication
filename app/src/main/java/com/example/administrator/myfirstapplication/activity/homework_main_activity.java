@@ -26,7 +26,7 @@ public class homework_main_activity extends Activity {
         setContentView(R.layout.homework_main);
         list = new ArrayList<>();
         lv = (ListView) findViewById(R.id.homeworklist);
-        list.add("holloword");
+        list.add("helloworld");
         list.add("放个图片");
         list.add("手机屏幕信息");
         list.add("图片轮循");
@@ -40,6 +40,7 @@ public class homework_main_activity extends Activity {
         list.add("仿qq2");
         list.add("搜索");
         list.add("单选复选/验证码按钮");
+        list.add("可展开的list");
         list.add("图片改变透明度");
         list.add("api查菜谱");
         list.add("api查归属地");
@@ -114,36 +115,40 @@ public class homework_main_activity extends Activity {
                         startActivity(i13);
                         break;
                     case 14:
-                        Intent i14 = new Intent(homework_main_activity.this, homework15_imgchangealpha_activity.class);
+                        Intent i14 = new Intent(homework_main_activity.this, homework13_listview_activity.class);
                         startActivity(i14);
                         break;
                     case 15:
-                        Intent i15 = new Intent(homework_main_activity.this, homework_api_caipu_activity.class);
+                        Intent i15 = new Intent(homework_main_activity.this, homework15_imgchangealpha_activity.class);
                         startActivity(i15);
                         break;
                     case 16:
-                        Intent i16 = new Intent(homework_main_activity.this, homework_api_guishu_activity.class);
+                        Intent i16 = new Intent(homework_main_activity.this, homework_api_caipu_activity.class);
                         startActivity(i16);
                         break;
                     case 17:
-                        Intent i17 = new Intent(homework_main_activity.this, homework_duoxuan_activity.class);
+                        Intent i17 = new Intent(homework_main_activity.this, homework_api_guishu_activity.class);
                         startActivity(i17);
                         break;
                     case 18:
-                        Intent i18 = new Intent(homework_main_activity.this, homework_gotoTEL_activity.class);
+                        Intent i18 = new Intent(homework_main_activity.this, homework_duoxuan_activity.class);
                         startActivity(i18);
                         break;
                     case 19:
-                        Intent i19 = new Intent(homework_main_activity.this, homework_seekbar_activity.class);
+                        Intent i19 = new Intent(homework_main_activity.this, homework_gotoTEL_activity.class);
                         startActivity(i19);
                         break;
                     case 20:
-                        Intent i20 = new Intent(homework_main_activity.this, homework_tanqiu_moveair_activity.class);
+                        Intent i20 = new Intent(homework_main_activity.this, homework_seekbar_activity.class);
                         startActivity(i20);
                         break;
                     case 21:
-                        Intent i21 = new Intent(homework_main_activity.this, homework_autochangelanguange_activity.class);
+                        Intent i21 = new Intent(homework_main_activity.this, homework_tanqiu_moveair_activity.class);
                         startActivity(i21);
+                        break;
+                    case 22:
+                        Intent i22 = new Intent(homework_main_activity.this, homework_autochangelanguange_activity.class);
+                        startActivity(i22);
                         break;
                 }
             }

@@ -48,6 +48,8 @@
         </activity>
         <activity android:name=".activity.homework11_radio_activity">
         </activity>
+        <activity android:name=".activity.homework13_listview_activity">
+        </activity>
         <activity android:name=".activity.homework15_imgchangealpha_activity">
         </activity>
         <activity android:name=".activity.homework_api_caipu_activity">
