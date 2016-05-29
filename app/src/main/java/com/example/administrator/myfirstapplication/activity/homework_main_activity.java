@@ -44,6 +44,8 @@ public class homework_main_activity extends Activity {
         list.add("图片改变透明度");
         list.add("api查菜谱");
         list.add("api查归属地");
+        list.add("Spinner");
+        list.add("自动播放view");
         list.add("dailog多选");
         list.add("转到通讯录");
         list.add("bar");
@@ -131,24 +133,32 @@ public class homework_main_activity extends Activity {
                         startActivity(i17);
                         break;
                     case 18:
-                        Intent i18 = new Intent(homework_main_activity.this, homework_duoxuan_activity.class);
+                        Intent  i18 = new Intent(homework_main_activity.this, homework_Spinner_activity.class);
                         startActivity(i18);
                         break;
                     case 19:
-                        Intent i19 = new Intent(homework_main_activity.this, homework_gotoTEL_activity.class);
+                        Intent  i19 = new Intent(homework_main_activity.this, homework_autoplayview_activity.class);
                         startActivity(i19);
                         break;
                     case 20:
-                        Intent i20 = new Intent(homework_main_activity.this, homework_seekbar_activity.class);
+                        Intent  i20 = new Intent(homework_main_activity.this, homework_duoxuan_activity.class);
                         startActivity(i20);
                         break;
                     case 21:
-                        Intent i21 = new Intent(homework_main_activity.this, homework_tanqiu_moveair_activity.class);
+                        Intent i21 = new Intent(homework_main_activity.this, homework_gotoTEL_activity.class);
                         startActivity(i21);
                         break;
                     case 22:
-                        Intent i22 = new Intent(homework_main_activity.this, homework_autochangelanguange_activity.class);
+                        Intent i22 = new Intent(homework_main_activity.this, homework_seekbar_activity.class);
                         startActivity(i22);
+                        break;
+                    case 23:
+                        Intent i23 = new Intent(homework_main_activity.this, homework_tanqiu_moveair_activity.class);
+                        startActivity(i23);
+                        break;
+                    case 24:
+                        Intent i24 = new Intent(homework_main_activity.this, homework_autochangelanguange_activity.class);
+                        startActivity(i24);
                         break;
                 }
             }

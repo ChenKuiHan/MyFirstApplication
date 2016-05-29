@@ -19,7 +19,6 @@
         <activity android:name=".activity.homework1_helloword_activity">
         </activity>
         <activity android:name=".activity.homework2_img_activity">
-
         </activity>
         <activity android:name=".activity.homework3_phoneinfo_activity">
         </activity>
@@ -30,7 +29,6 @@
         <activity android:name=".activity.homework_tanqiu_moveair_activity">
         </activity>
         <activity android:name=".activity.homework6_qq_activity">
-
         </activity>
         <activity android:name=".activity.homework6_tel_activity">
         </activity>
@@ -55,6 +53,10 @@
         <activity android:name=".activity.homework_api_caipu_activity">
         </activity>
         <activity android:name=".activity.homework_api_caipu_info_activity">
+        </activity>
+        <activity android:name=".activity.homework_Spinner_activity">
+        </activity>
+        <activity android:name=".activity.homework_autoplayview_activity">
         </activity>
         <activity android:name=".activity.homework_gotoTEL_activity">
         </activity>
