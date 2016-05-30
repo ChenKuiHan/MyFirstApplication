@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="homework28_layout" type="layout">@layout/homework28_layout_pad</item>
+</resources>
