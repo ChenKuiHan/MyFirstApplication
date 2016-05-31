@@ -41,8 +41,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case android.R.id.home:
-                Intent i19 = new Intent(this, homework_main_activity.class);
-                startActivity(i19);
+                Intent i = new Intent(this, homework_main_activity.class);
+                startActivity(i);
                 break;
             case R.id.normal_btn:
                 AlertDialog.Builder b=new AlertDialog.Builder(BaseActivity.this);
@@ -56,6 +56,10 @@ public abstract class BaseActivity extends AppCompatActivity {
                     }
                 });
                 b.create().show();
+                break;
+            case R.id.normal_btn1:
+                Intent i1=new Intent(this,homework_autosaveset_activity.class);
+                startActivity(i1);
                 break;
         }
         return true;

@@ -21,7 +21,6 @@ public class homework_api_caipu_info_activity extends BaseActivity {
     Bitmap bm;
     @Override
     protected void contectview(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.homework_api_caipu_info);
         Bundle b=getIntent().getBundleExtra("a");
         Map<String,String> m= (Map<String, String>) b.getSerializable("info");

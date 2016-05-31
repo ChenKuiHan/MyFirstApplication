@@ -3,6 +3,10 @@
     package="com.example.administrator.myfirstapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -48,6 +52,8 @@
         </activity>
         <activity android:name=".activity.homework13_listview_activity">
         </activity>
+        <activity android:name=".activity.homeworh14_autoplayview_activity">
+        </activity>
         <activity android:name=".activity.homework15_imgchangealpha_activity">
         </activity>
         <activity android:name=".activity.homework_api_caipu_activity">
@@ -56,7 +62,7 @@
         </activity>
         <activity android:name=".activity.homework_Spinner_activity">
         </activity>
-        <activity android:name=".activity.homework_autoplayview_activity">
+        <activity android:name=".activity.homework_taobaoad_activity">
         </activity>
         <activity android:name=".activity.homework_gotoTEL_activity">
         </activity>
@@ -73,6 +79,8 @@
         <activity android:name=".activity.homework28_pad_activity">
         </activity>
         <activity android:name=".activity.homework28_bookinfo_activity">
+        </activity>
+        <activity android:name=".activity.homework_autosaveset_activity">
         </activity>
         <!--<activity android:name=".activity.BaseActivity">-->
             <!---->

@@ -3,4 +3,5 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/search" android:title="搜索" android:showAsAction="always" android:actionViewClass="android.widget.SearchView" />
     <item android:id="@+id/normal_btn" android:title="about" android:showAsAction="never"/>
+    <item android:id="@+id/normal_btn1" android:title="option" android:showAsAction="never"/>
 </menu>
