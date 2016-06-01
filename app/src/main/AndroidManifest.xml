@@ -52,7 +52,7 @@
         </activity>
         <activity android:name=".activity.homework13_listview_activity">
         </activity>
-        <activity android:name=".activity.homeworh14_autoplayview_activity">
+        <activity android:name=".activity.homework14_autoplayview_activity">
         </activity>
         <activity android:name=".activity.homework15_imgchangealpha_activity">
         </activity>
@@ -82,8 +82,9 @@
         </activity>
         <activity android:name=".activity.homework_autosaveset_activity">
         </activity>
-        <!--<activity android:name=".activity.BaseActivity">-->
-            <!---->
-        <!--</activity>-->
+        <activity android:name=".activity.homework_huaxian_activity">
+        </activity>
+        <activity android:name=".activity.homework_boom_activity">
+        </activity>
     </application>
 </manifest>

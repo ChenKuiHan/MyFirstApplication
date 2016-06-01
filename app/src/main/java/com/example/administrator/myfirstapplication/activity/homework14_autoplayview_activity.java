@@ -15,7 +15,7 @@ import java.util.TimerTask;
 /**
  * Created by Administrator on 2016/5/31 0031.
  */
-public class homeworh14_autoplayview_activity extends BaseActivity {
+public class homework14_autoplayview_activity extends BaseActivity {
     ViewSwitcher vs;
     Timer t;
     Handler h=new Handler(){
