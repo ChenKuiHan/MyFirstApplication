@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -14,6 +16,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * Created by Administrator on 16-5-23.
@@ -21,32 +24,19 @@ import java.util.List;
 public class airplane_view extends View implements View.OnTouchListener {
 
     float cx,cy,ax,ay,dx,dy;
-    float by=0;
     Bitmap airplane;
-    Bitmap bullet;
     Bitmap background;
-    Matrix m;
+    Bitmap enemy;
     boolean flag = true;
-    boolean flag2 = true;
-    List<bullet_bean> list = new ArrayList<bullet_bean>();
+    boolean flag2 = false;
+    List<bullet_bean> list = new Vector<bullet_bean>();
+    List<enemy_bean> list2 = new Vector<enemy_bean>();
 
     Handler h = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if (list.size() != 0) {
-                for (int i = 0; i < list.size(); i++) {
-                    float y = list.get(i).getY();
-                    list.get(i).setY(y - 20);
-                    if (y < 0) {
-                        list.remove(list.get(i));
-                    }
-                }
-            }
-            by+=1;
-            if (by>100){
-                by=0;
-            }
+
             invalidate();
         }
     };
@@ -60,31 +50,71 @@ public class airplane_view extends View implements View.OnTouchListener {
 
     public airplane_view(Context context, int width, int height) {
         super(context);
-        airplane = BitmapFactory.decodeResource(getResources(), R.drawable.plane);
+
+        Bitmap a = BitmapFactory.decodeResource(getResources(), R.drawable.plane);
+        Matrix m1=new Matrix();
+        m1.setScale(0.7f,0.7f);
+        airplane=Bitmap.createBitmap(a,0,0,a.getWidth(),a.getHeight(),m1,false);
         background=BitmapFactory.decodeResource(getResources(),R.drawable.back);
-        bullet = BitmapFactory.decodeResource(getResources(), R.drawable.bullet_04);
-        m=new Matrix();
-        m.setScale(6,7);
-//        airplane.setWidth(50);
-//        airplane.setHeight(50);
+        Bitmap b=BitmapFactory.decodeResource(getResources(),R.drawable.airplane);
+        Matrix m2=new Matrix();
+        m2.setRotate(180);
+        Bitmap bb=Bitmap.createBitmap(b,0,0,b.getWidth(),b.getHeight(),m2,false);
+        Matrix m3=new Matrix();
+        m3.setScale(0.5f,0.5f);
+        enemy=Bitmap.createBitmap(bb,0,0,b.getWidth(),b.getHeight(),m3,false);
         cx = width / 2 - airplane.getWidth() / 2;
         cy = height;
 
     }
-
-    public airplane_view(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint p = new Paint();
-        Bitmap bitmap=Bitmap.createBitmap(background,0,(int)by,200,300,m,true);
-        canvas.drawBitmap(bitmap,0,0,p);
         canvas.drawBitmap(airplane, cx, cy, p);
-        if (flag) {
-            flag = false;
+
+        if(list.size()!=0&&list2.size()!=0) {
+            for(int i=list.size()-1;i>0;i--){
+                for(int ii=list2.size()-1;ii>0;ii--){
+                    Float bulletx=list.get(i).getX();
+                    Float bullety=list.get(i).getY();
+                    Float enemyx=list2.get(ii).getX();
+                    Float enemyy=list2.get(ii).getY();
+                    if (bulletx>enemyx&&bulletx<enemyx+enemy.getWidth()){
+                        if(bullety-20<enemyy+enemy.getHeight()){
+                            list.remove(i);
+                            list2.remove(ii);
+
+                            break;
+                        }
+                    }
+//                    if(list.get(i).getX()-5>list2.get(ii).getX()-airplane.getWidth()/2
+//                            &&list.get(i).getX()+5<list2.get(ii).getX()+airplane.getWidth()/2
+//                            &&list.get(i).getY()-20<list2.get(ii).getY()+enemy.getHeight()){
+//                        list.remove(list.get(i));
+//                        list2.remove(list2.get(ii));
+//                        break;
+//                    }
+                }
+            }
+            for (int i = 0; i < list.size(); i++) {
+                p.setColor(0xff000000);
+                canvas.drawRect(list.get(i).getX() - 5, list.get(i).getY() - 20, list.get(i).getX() + 5, list.get(i).getY() + 20, p);
+            }
+            for(int ii=0;ii<list2.size();ii++){
+                canvas.drawBitmap(enemy,list2.get(ii).getX(),list2.get(ii).getY(),p);
+            }
+        }
+
+
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        ax = event.getX();
+        ay = event.getY();
+        if(flag){
+            flag=false;
             (new Thread() {
                 @Override
                 public void run() {
@@ -100,49 +130,78 @@ public class airplane_view extends View implements View.OnTouchListener {
                         m.what = 1;
                         h.sendMessage(m);
                     }
-                    (new Thread() {
-                        @Override
-                        public void run() {
-                            super.run();
-                            while (true) {
-                                bullet_bean bb = new bullet_bean();
-                                bb.setX(cx + (airplane.getWidth() - bullet.getWidth()) + 20);
-                                bb.setY(cy - 50);
-                                list.add(bb);
-                                try {
-                                    sleep(60);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }).start();
+                    flag2=true;
                 }
             }).start();
         }
-        for (int i = 0; i < list.size(); i++) {
-            canvas.drawBitmap(bullet, list.get(i).getX(), list.get(i).getY(), p);
-        }
 
-
-    }
-
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        ax = event.getX();
-        ay = event.getY();
         if (flag2) {
             flag2 = false;
+
             (new Thread() {
                 @Override
                 public void run() {
                     super.run();
                     while (true) {
+                        if (list.size() != 0) {
+                            for (int i = 0; i < list.size(); i++) {
+                                float y = list.get(i).getY();
+                                list.get(i).setY(y - 20);
+                                if (y < 0) {
+                                    list.remove(list.get(i));
+                                }
+                            }
+                        }
+                        if(list2.size()!=0){
+                            for(int ii=0;ii<list2.size();ii++){
+                                float y=list2.get(ii).getY();
+                                list2.get(ii).setY(y+10);
+                                if(y>1950){
+                                    list2.remove(list2.get(ii));
+                                }
+                            }
+                        }
                         Message m = new Message();
                         m.what = 1;
                         h.sendMessage(m);
                         try {
-                            sleep(20);
+                            sleep(10);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+            (new Thread() {
+                @Override
+                public void run() {
+                    super.run();
+                    while (true) {
+                        bullet_bean bb = new bullet_bean();
+                        bb.setX(cx + (airplane.getWidth()/2));
+                        bb.setY(cy - 50);
+                        list.add(bb);
+                        try {
+                            sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+            (new Thread(){
+                @Override
+                public void run() {
+                    super.run();
+                    int x;
+                    while (true){
+                        enemy_bean eb=new enemy_bean();
+                        x=(int)(Math.random()*1080);
+                        eb.setX(x-enemy.getWidth()/2);
+                        eb.setY(-100);
+                        list2.add(eb);
+                        try {
+                            sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
