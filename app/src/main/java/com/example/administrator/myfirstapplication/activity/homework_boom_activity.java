@@ -5,6 +5,10 @@ import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.example.administrator.myfirstapplication.R;
@@ -15,7 +19,7 @@ import com.example.administrator.myfirstapplication.R;
 public class homework_boom_activity extends BaseActivity {
 
     ImageView iv;
-
+    ImageView iv2;
     AnimationDrawable ad;
 
     MediaPlayer music;
@@ -24,6 +28,7 @@ public class homework_boom_activity extends BaseActivity {
         setContentView(R.layout.homework_boom);
 
         iv = (ImageView) findViewById(R.id.animIv);
+        iv2= (ImageView) findViewById(R.id.image11);
         ad = (AnimationDrawable) iv.getBackground();
     }
 
@@ -40,5 +45,15 @@ public class homework_boom_activity extends BaseActivity {
     public void stop(View view)
     {
         ad.stop();
+    }
+
+    public void start(View view){
+        Animation a= new AlphaAnimation(1,0.2f);
+        Animation b=new RotateAnimation(0,1800);
+        AnimationSet as=new AnimationSet(true);
+        as.addAnimation(a);
+        as.addAnimation(b);
+        as.setDuration(3000);
+        iv2.startAnimation(as);
     }
 }

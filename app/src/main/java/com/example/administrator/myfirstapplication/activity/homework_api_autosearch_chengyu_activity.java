@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * Created by Administrator on 16-5-24.
  */
-public class test extends Activity {
+public class homework_api_autosearch_chengyu_activity extends Activity {
     ListView lv;
     SearchView sv;
     test_bean tb = new test_bean();
@@ -40,12 +40,17 @@ public class test extends Activity {
             tb = g.fromJson(s, test_bean.class);
             List<test_bean.ResultBean> list = tb.getResult();
             l.clear();
-            for (test_bean.ResultBean rb : list) {
-                Map<String, Object> m = new HashMap<String, Object>();
-                m.put("name", rb.getName());
-                l.add(m);
+            if(list!=null){
+                for (test_bean.ResultBean rb : list) {
+                    Map<String, Object> m = new HashMap<String, Object>();
+                    m.put("name", rb.getName());
+                    l.add(m);
+                }
+            }else{
+                search("成");
             }
-            SimpleAdapter sa = new SimpleAdapter(test.this, l, R.layout.chengyu, new String[]{"name"}, new int[]{R.id.text});
+
+            SimpleAdapter sa = new SimpleAdapter(homework_api_autosearch_chengyu_activity.this, l, R.layout.homework_autosearch, new String[]{"name"}, new int[]{R.id.text});
             lv.setAdapter(sa);
         }
     };
@@ -81,7 +86,7 @@ public class test extends Activity {
             public void run() {
                 super.run();
                 String httpUrl = "http://apis.baidu.com/avatardata/chengyu/search";
-                String httpArg = "dtype=JSON&keyWord=" + text + "&page=1&rows=20";
+                String httpArg = "dtype=JSON&keyWord="+text+"&page=1&rows=20";
                 BufferedReader reader = null;
                 String result = null;
                 StringBuffer sbf = new StringBuffer();

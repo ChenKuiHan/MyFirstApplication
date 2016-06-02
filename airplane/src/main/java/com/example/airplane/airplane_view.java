@@ -8,6 +8,8 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -27,8 +29,13 @@ public class airplane_view extends View implements View.OnTouchListener {
     Bitmap airplane;
     Bitmap background;
     Bitmap enemy;
+    Bitmap boom;
+    BitmapDrawable bd;
+    AnimationDrawable ad;
+    Drawable da;
     boolean flag = true;
     boolean flag2 = false;
+
     List<bullet_bean> list = new Vector<bullet_bean>();
     List<enemy_bean> list2 = new Vector<enemy_bean>();
 
@@ -38,13 +45,6 @@ public class airplane_view extends View implements View.OnTouchListener {
             super.handleMessage(msg);
 
             invalidate();
-        }
-    };
-    Handler h1 = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
         }
     };
 
@@ -63,6 +63,11 @@ public class airplane_view extends View implements View.OnTouchListener {
         Matrix m3=new Matrix();
         m3.setScale(0.5f,0.5f);
         enemy=Bitmap.createBitmap(bb,0,0,b.getWidth(),b.getHeight(),m3,false);
+        boom=BitmapFactory.decodeResource(getResources(),R.drawable.boom);
+//
+//        bd=new BitmapDrawable(getResources(),boom);
+//        da=bd;
+//        ad= (AnimationDrawable) da;
         cx = width / 2 - airplane.getWidth() / 2;
         cy = height;
 
@@ -73,28 +78,22 @@ public class airplane_view extends View implements View.OnTouchListener {
         Paint p = new Paint();
         canvas.drawBitmap(airplane, cx, cy, p);
 
-        if(list.size()!=0&&list2.size()!=0) {
-            for(int i=list.size()-1;i>0;i--){
-                for(int ii=list2.size()-1;ii>0;ii--){
+        if(list!=null&&list2!=null) {
+            for(int i=list.size()-1;i>=0;i--){
+                for(int ii=list2.size()-1;ii>=0;ii--){
                     Float bulletx=list.get(i).getX();
                     Float bullety=list.get(i).getY();
                     Float enemyx=list2.get(ii).getX();
                     Float enemyy=list2.get(ii).getY();
                     if (bulletx>enemyx&&bulletx<enemyx+enemy.getWidth()){
-                        if(bullety-20<enemyy+enemy.getHeight()){
+                        if(bullety<enemyy+enemy.getHeight()&&bullety>enemyy){
                             list.remove(i);
                             list2.remove(ii);
-
+//                            canvas.drawBitmap(boom,bulletx,bullety,p);
+//                            ad.start();
                             break;
                         }
                     }
-//                    if(list.get(i).getX()-5>list2.get(ii).getX()-airplane.getWidth()/2
-//                            &&list.get(i).getX()+5<list2.get(ii).getX()+airplane.getWidth()/2
-//                            &&list.get(i).getY()-20<list2.get(ii).getY()+enemy.getHeight()){
-//                        list.remove(list.get(i));
-//                        list2.remove(list2.get(ii));
-//                        break;
-//                    }
                 }
             }
             for (int i = 0; i < list.size(); i++) {
@@ -143,21 +142,23 @@ public class airplane_view extends View implements View.OnTouchListener {
                 public void run() {
                     super.run();
                     while (true) {
-                        if (list.size() != 0) {
+                        //移除屏幕外子弹
+                        if (list!= null) {
                             for (int i = 0; i < list.size(); i++) {
                                 float y = list.get(i).getY();
                                 list.get(i).setY(y - 20);
                                 if (y < 0) {
-                                    list.remove(list.get(i));
+                                    list.remove(i);
                                 }
                             }
                         }
+                        //移除屏幕外敌机
                         if(list2.size()!=0){
                             for(int ii=0;ii<list2.size();ii++){
                                 float y=list2.get(ii).getY();
                                 list2.get(ii).setY(y+10);
                                 if(y>1950){
-                                    list2.remove(list2.get(ii));
+                                    list2.remove(ii);
                                 }
                             }
                         }
@@ -172,6 +173,7 @@ public class airplane_view extends View implements View.OnTouchListener {
                     }
                 }
             }).start();
+            //创建子弹对象
             (new Thread() {
                 @Override
                 public void run() {
@@ -189,6 +191,7 @@ public class airplane_view extends View implements View.OnTouchListener {
                     }
                 }
             }).start();
+            //创建敌机对象
             (new Thread(){
                 @Override
                 public void run() {
@@ -201,7 +204,7 @@ public class airplane_view extends View implements View.OnTouchListener {
                         eb.setY(-100);
                         list2.add(eb);
                         try {
-                            sleep(500);
+                            sleep(250);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
