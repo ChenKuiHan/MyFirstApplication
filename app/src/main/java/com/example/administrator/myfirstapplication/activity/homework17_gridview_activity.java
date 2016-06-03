@@ -1,5 +1,6 @@
 package com.example.administrator.myfirstapplication.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,23 +20,22 @@ import java.util.Map;
 /**
  * Created by Administrator on 2016/6/2 0002.
  */
-public class homework17_listview_activity extends BaseActivity {
+public class homework17_gridview_activity extends Activity {
     GridView gv;
     List<Map<String,String>> list=new ArrayList<Map<String,String>>();
     @Override
-    protected void contectview(Bundle savedInstanceState) {
-        setContentView(R.layout.homework17_listview);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.homework17_gridview);
         gv= (GridView) findViewById(R.id.gridView);
-        Map<String,String> m=new HashMap();
-        m.put("pic",R.drawable.icon_11+"");
-        m.put("name","sss");
-        list.add(m);
-        list.add(m);
-        list.add(m);
-        list.add(m);
-        list.add(m);
-        list.add(m);
-        list.add(m);
+        for(int i=0;i<5;i++){
+            Map<String,String> m=new HashMap();
+            m.put("pic",R.drawable.icon_11+"");
+            m.put("name","sss");
+            list.add(m);
+        }
+        myadapter my=new myadapter();
+        gv.setAdapter(my);
     }
 
     class myadapter extends BaseAdapter{
@@ -57,12 +57,15 @@ public class homework17_listview_activity extends BaseActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            LayoutInflater li = LayoutInflater.from(homework17_listview_activity.this);
-            View view = li.inflate(R.layout.caipu,null);
+            LayoutInflater li = LayoutInflater.from(homework17_gridview_activity.this);
+            View view = li.inflate(R.layout.homework17_items,null);
 
-            ImageView iv= (ImageView) view.findViewById(R.id.img);
-            TextView foodtv= (TextView) view.findViewById(R.id.food);
-            return null;
+            ImageView iv= (ImageView) view.findViewById(R.id.imageView);
+            TextView tv= (TextView) view.findViewById(R.id.text123);
+            Map<String,String> m=list.get(position);
+            iv.setImageResource(Integer.parseInt(m.get("pic")));
+            tv.setText(m.get("name"));
+            return view;
         }
     }
 }
