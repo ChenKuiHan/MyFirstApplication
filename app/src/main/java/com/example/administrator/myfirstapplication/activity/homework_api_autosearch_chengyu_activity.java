@@ -35,19 +35,18 @@ public class homework_api_autosearch_chengyu_activity extends Activity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             Bundle b = msg.getData();
-            String s = (String) b.get("ss");
+            String s = b.getString("ss");
             Gson g = new Gson();
             tb = g.fromJson(s, test_bean.class);
             List<test_bean.ResultBean> list = tb.getResult();
-            l.clear();
-            if(list!=null){
+
+            if(list!=null) {
+                l.clear();
                 for (test_bean.ResultBean rb : list) {
                     Map<String, Object> m = new HashMap<String, Object>();
                     m.put("name", rb.getName());
                     l.add(m);
                 }
-            }else{
-                search("成");
             }
 
             SimpleAdapter sa = new SimpleAdapter(homework_api_autosearch_chengyu_activity.this, l, R.layout.homework_autosearch, new String[]{"name"}, new int[]{R.id.text});
@@ -81,24 +80,24 @@ public class homework_api_autosearch_chengyu_activity extends Activity {
     }
 
     public void search(final String text) {
+        final String httpUrl="http://apis.baidu.com/avatardata/chengyu/search";
+        final String httpArg = "dtype=JSON&keyWord="+text+"&page=1&rows=20";
+        final String Url=httpUrl + "?" + httpArg;
         (new Thread() {
             @Override
             public void run() {
                 super.run();
-                String httpUrl = "http://apis.baidu.com/avatardata/chengyu/search";
-                String httpArg = "dtype=JSON&keyWord="+text+"&page=1&rows=20";
                 BufferedReader reader = null;
                 String result = null;
                 StringBuffer sbf = new StringBuffer();
-                httpUrl = httpUrl + "?" + httpArg;
 
                 try {
-                    URL url = new URL(httpUrl);
+                    URL url = new URL(Url);
                     HttpURLConnection connection = (HttpURLConnection) url
                             .openConnection();
                     connection.setRequestMethod("GET");
                     // 填入apikey到HTTP header
-                    connection.setRequestProperty("apikey", "4383014a2e3615a560e13c94b40816e8");
+                    connection.setRequestProperty("apikey",  "4383014a2e3615a560e13c94b40816e8");
                     connection.connect();
                     InputStream is = connection.getInputStream();
                     reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -109,9 +108,9 @@ public class homework_api_autosearch_chengyu_activity extends Activity {
                     }
                     reader.close();
                     result = sbf.toString();
-                    Message m = new Message();
-                    Bundle b = new Bundle();
-                    b.putSerializable("ss", result);
+                    Message m=new Message();
+                    Bundle b=new Bundle();
+                    b.putString("ss",result);
                     m.setData(b);
                     h.sendMessage(m);
                 } catch (Exception e) {

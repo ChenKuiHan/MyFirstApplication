@@ -2,13 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.myfirstapplication">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
 
     <application
         android:allowBackup="true"
@@ -22,83 +31,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.homework1_helloword_activity">
-        </activity>
-        <activity android:name=".activity.homework2_img_activity">
-        </activity>
-        <activity android:name=".activity.homework3_phoneinfo_activity">
-        </activity>
-        <activity android:name=".activity.homework4_imgchange_activity">
-        </activity>
-        <activity android:name=".activity.homework5_drawxin_activity">
-        </activity>
-        <activity android:name=".activity.homework_tanqiu_moveair_activity">
-        </activity>
-        <activity android:name=".activity.homework6_qq_activity">
-        </activity>
-        <activity android:name=".activity.homework6_tel_activity">
-        </activity>
-        <activity android:name=".activity.homework6_login_activity">
-        </activity>
-        <activity android:name=".activity.homework7_nihong_activity">
-        </activity>
-        <activity android:name=".activity.homework8_shizi_activity">
-        </activity>
-        <activity android:name=".activity.homework9_calculator_activity">
-        </activity>
-        <activity android:name=".activity.homework10_qq_activity">
-        </activity>
-        <activity android:name=".activity.homework10_sousuo_activity">
-        </activity>
-        <activity android:name=".activity.homework11_radio_activity">
-        </activity>
-        <activity android:name=".activity.homework13_listview_activity">
-        </activity>
-        <activity android:name=".activity.homework14_autoplayview_activity">
-        </activity>
-        <activity android:name=".activity.homework15_imgchangealpha_activity">
-        </activity>
-        <activity android:name=".activity.homework17_gridview_activity">
-        </activity>
-        <activity android:name=".activity.homework_api_caipu_activity">
-        </activity>
-        <activity android:name=".activity.homework_api_caipu_info_activity">
-        </activity>
-        <activity android:name=".activity.homework_Spinner_activity">
-        </activity>
-        <activity android:name=".activity.homework_taobaoad_activity">
-        </activity>
-        <activity android:name=".activity.homework_gotoTEL_activity">
-        </activity>
-        <activity android:name=".activity.homework_api_guishu_activity">
-        </activity>
-        <activity android:name=".activity.homework_seekbar_activity">
-        </activity>
-        <activity android:name=".activity.homework_api_autosearch_chengyu_activity">
-        </activity>
-        <activity android:name=".activity.homework_duoxuan_activity">
-        </activity>
-        <activity android:name=".activity.homework_autochangelanguange_activity">
-        </activity>
-        <activity android:name=".activity.homework28_pad_activity">
-        </activity>
-        <activity android:name=".activity.homework28_bookinfo_activity">
-        </activity>
-        <activity android:name=".activity.homework32_db_activity">
-        </activity>
-        <activity android:name=".activity.homework32_db_edit_avtivity">
-        </activity>
-        <activity android:name=".activity.homework_autosaveset_activity">
-        </activity>
-        <activity android:name=".activity.homework_huaxian_activity">
-        </activity>
-        <activity android:name=".activity.homework_boom_activity">
-        </activity>
-        <activity android:name=".activity.homework_autologin_activity">
-        </activity>
-        <activity android:name=".activity.homework_autologin_activity2">
-        </activity>
-        <activity android:name=".activity.homework_download_activity">
-        </activity>
+        <activity android:name=".activity.homework1_helloword_activity"></activity>
+        <activity android:name=".activity.homework2_img_activity"></activity>
+        <activity android:name=".activity.homework3_phoneinfo_activity"></activity>
+        <activity android:name=".activity.homework4_imgchange_activity"></activity>
+        <activity android:name=".activity.homework5_drawxin_activity"></activity>
+        <activity android:name=".activity.homework_tanqiu_moveair_activity"></activity>
+        <activity android:name=".activity.homework6_qq_activity"></activity>
+        <activity android:name=".activity.homework6_tel_activity"></activity>
+        <activity android:name=".activity.homework6_login_activity"></activity>
+        <activity android:name=".activity.homework7_nihong_activity"></activity>
+        <activity android:name=".activity.homework8_shizi_activity"></activity>
+        <activity android:name=".activity.homework9_calculator_activity"></activity>
+        <activity android:name=".activity.homework10_qq_activity"></activity>
+        <activity android:name=".activity.homework10_sousuo_activity"></activity>
+        <activity android:name=".activity.homework11_radio_activity"></activity>
+        <activity android:name=".activity.homework13_listview_activity"></activity>
+        <activity android:name=".activity.homework14_autoplayview_activity"></activity>
+        <activity android:name=".activity.homework15_imgchangealpha_activity"></activity>
+        <activity android:name=".activity.homework17_gridview_activity"></activity>
+        <activity android:name=".activity.homework19_birthday_activity"></activity>
+        <activity android:name=".activity.homework19_birthday_activity2"></activity>
+        <activity android:name=".activity.homework20_tabs_activity"></activity>
+        <activity android:name=".activity.homework22_menu_activity"></activity>
+        <activity android:name=".activity.homework24_call_send_activity"></activity>
+        <activity android:name=".activity.homework25_city_activity"></activity>
+        <activity android:name=".activity.homework26_configuration_activity"
+            android:configChanges="orientation|screenSize"></activity>
+        <activity android:name=".activity.homework_api_caipu_activity"></activity>
+        <activity android:name=".activity.homework_api_caipu_info_activity"></activity>
+        <activity android:name=".activity.homework_Spinner_activity"></activity>
+        <activity android:name=".activity.homework_taobaoad_activity"></activity>
+        <activity android:name=".activity.homework_gotoTEL_activity"></activity>
+        <activity android:name=".activity.homework_api_guishu_activity"></activity>
+        <activity android:name=".activity.homework_seekbar_activity"></activity>
+        <activity android:name=".activity.homework_content_activity"></activity>
+        <activity android:name=".activity.homework_api_autosearch_chengyu_activity"></activity>
+        <activity android:name=".activity.homework_duoxuan_activity"></activity>
+        <activity android:name=".activity.homework_autochangelanguange_activity"></activity>
+        <activity android:name=".activity.homework28_pad_activity"></activity>
+        <activity android:name=".activity.homework28_bookinfo_activity"></activity>
+        <activity android:name=".activity.homework30_baidu_activity"></activity>
+        <activity android:name=".activity.homework32_db_activity"></activity>
+        <activity android:name=".activity.homework32_db_edit_avtivity"></activity>
+        <activity android:name=".activity.homework33_shoushi_activity"></activity>
+        <activity android:name=".activity.homework_autosaveset_activity"></activity>
+        <activity android:name=".activity.homework_huaxian_activity"></activity>
+        <activity android:name=".activity.homework_boom_activity"></activity>
+        <activity android:name=".activity.homework_autologin_activity"></activity>
+        <activity android:name=".activity.homework_autologin_activity2"></activity>
+        <activity android:name=".activity.homework_download_activity"></activity>
+        <activity android:name=".activity.homework36_yuyin_activity"></activity>
     </application>
 </manifest>

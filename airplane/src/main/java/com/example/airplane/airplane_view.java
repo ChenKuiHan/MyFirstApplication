@@ -166,7 +166,7 @@ public class airplane_view extends View implements View.OnTouchListener {
                         m.what = 1;
                         h.sendMessage(m);
                         try {
-                            sleep(10);
+                            sleep(20);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

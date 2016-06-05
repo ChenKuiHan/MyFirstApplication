@@ -1,5 +1,6 @@
 package com.example.administrator.myfirstapplication.activity;
 
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,9 +16,9 @@ import com.example.administrator.myfirstapplication.R;
  * Created by Administrator on 2016/5/27 0027.
  */
 public class homework13_listview_activity extends BaseActivity{
-    String[] groupname={"1号组","2号组","3号组","4号组","5号组","6号组"};
-    String[][]groupinfo={{"第1项","第2项","第3项"},{"第4项","第5项","第6项"},{"第7项","第8项","第9项"},
-            {"第10项","第11项","第12项"},{"第13项","第14项","第15项"},{"第16项","第17项","第18项"}};
+    String[] groupname={"吉林","辽宁","黑龙江","四川"};
+    String[][]groupinfo={{"吉林","长春","四平"},{"沈阳","大连","鞍山"},{"哈尔滨","齐齐哈尔","佳木斯"},
+            {"成都","绵阳","乐山"}};
     @Override
     protected void contectview(Bundle savedInstanceState){
         setContentView(R.layout.homework13);
@@ -86,7 +87,12 @@ public class homework13_listview_activity extends BaseActivity{
 
             @Override
             public boolean isChildSelectable(int groupPosition, int childPosition) {
-                return false;
+//                Bundle b=new Bundle();
+//                b.putString("city",groupinfo[groupPosition][childPosition]);
+//                Intent i=new Intent(homework13_listview_activity.this,homework25_city_activity.class);
+//                i.putExtra("city",b);
+//                startActivity(i);
+                return true;
             }
 
             @Override
@@ -121,5 +127,16 @@ public class homework13_listview_activity extends BaseActivity{
         };
         ExpandableListView ev= (ExpandableListView) findViewById(R.id.grouplist);
         ev.setAdapter(ea);
+        ev.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+                Bundle b=new Bundle();
+                b.putString("city",groupinfo[groupPosition][childPosition]);
+                Intent i=new Intent(homework13_listview_activity.this,homework25_city_activity.class);
+                i.putExtra("city",b);
+                startActivity(i);
+                return true;
+            }
+        });
     }
 }
