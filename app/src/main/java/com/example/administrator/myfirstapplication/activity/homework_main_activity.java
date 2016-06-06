@@ -37,7 +37,7 @@ public class homework_main_activity extends BaseActivity {
             homework_filebrowser_activity.class, homework33_shoushi_activity.class,
             homework34_shoushi2_activity.class,homework35_diyshoushi_activity.class,
             homework_contentresolver_activity.class,homework_gotoTEL_activity.class,
-            homework_seekbar_activity.class, homework36_yuyin_activity.class};
+            homework_seekbar_activity.class, homework36_yuyin_activity.class,homework36_yuyin2_activity.class};
 
     String[] s = {"作业1：helloworld", "作业2：放个图片", "作业3：手机屏幕信息", "作业4：图片轮循",
             "作业5：画心", "作业6：表格布局登录", "作业6：仿qq", "作业6：输入电话号",
@@ -50,7 +50,8 @@ public class homework_main_activity extends BaseActivity {
             "作业26：屏幕方向对应布局", "作业27：网络下载并打开", "作业28：分辨手机，pad","作业24_2&30：打开百度",
             "作业30_2：画线", "作业30_3：爆炸,补间动画", "作业31：自动登录", "作业32：数据库操作",
             "作业32_1：文件浏览器", "作业33：手势缩放图片", "作业34：左右滑换页","作业35&35_1：自定义手势",
-            "作业：resolver","作业：转到通讯录", "作业：bar", "作业36：百度语音"};
+            "作业：resolver","作业：转到通讯录", "作业：bar", "作业36：百度语音合成",
+            "作业36：百度语音识别"};
 
     @Override
     protected void contectview(Bundle savedInstanceState) {
