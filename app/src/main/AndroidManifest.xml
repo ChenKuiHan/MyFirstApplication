@@ -76,13 +76,18 @@
         <activity android:name=".activity.homework32_db_edit_avtivity"></activity>
         <activity android:name=".activity.homework_filebrowser_activity"></activity>
         <activity android:name=".activity.homework33_shoushi_activity"></activity>
+        <activity android:name=".activity.homework34_shoushi2_activity"></activity>
+        <activity android:name=".activity.homework35_diyshoushi_activity"></activity>
+        <activity android:name=".activity.homework35_diyshoushi_activity2"></activity>
+        <activity android:name=".activity.homework36_yuyin_activity"></activity>
         <activity android:name=".activity.homework_autosaveset_activity"></activity>
         <activity android:name=".activity.homework_huaxian_activity"></activity>
         <activity android:name=".activity.homework_boom_activity"></activity>
         <activity android:name=".activity.homework_autologin_activity"></activity>
         <activity android:name=".activity.homework_autologin_activity2"></activity>
         <activity android:name=".activity.homework_download_activity"></activity>
-        <activity android:name=".activity.homework36_yuyin_activity"></activity>
+        <activity android:name=".activity.homework_contentresolver_activity"></activity>
+
         <activity android:name=".activity.a">
 
         </activity>

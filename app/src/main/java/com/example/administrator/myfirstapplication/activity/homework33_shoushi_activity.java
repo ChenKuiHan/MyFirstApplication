@@ -1,14 +1,13 @@
 package com.example.administrator.myfirstapplication.activity;
 
-import android.gesture.GestureOverlayView;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.ImageView;
+
 
 import com.example.administrator.myfirstapplication.R;
 
@@ -17,8 +16,8 @@ import com.example.administrator.myfirstapplication.R;
  */
 public class homework33_shoushi_activity extends BaseActivity implements GestureDetector.OnGestureListener{
     ImageView iv;
-    //int[] img={R.drawable.icon_11,R.drawable.icon_37,R.drawable.icon_28,R.drawable.icon_30,R.drawable.icon_33};
-    //int index=0;
+    int[] img={R.drawable.icon_11,R.drawable.icon_37,R.drawable.icon_28,R.drawable.icon_30,R.drawable.icon_33};
+    int index=0;
     Bitmap bitmap;
     float currentScale=1;
     int width,height;
@@ -33,6 +32,7 @@ public class homework33_shoushi_activity extends BaseActivity implements Gesture
         width= bitmap.getWidth();
         height=bitmap.getHeight();
         iv.setImageBitmap(bitmap);
+//        iv.setImageResource(img[index]);
         gd=new GestureDetector(this,this);
     }
 
@@ -68,22 +68,32 @@ public class homework33_shoushi_activity extends BaseActivity implements Gesture
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-//        velocityX = velocityX > 4000 ? 4000 : velocityX;
-//        velocityX = velocityX < -4000 ? -4000 : velocityX;
-        currentScale += currentScale * velocityX / 4000.0f;
-        currentScale = currentScale > 0.01 ? currentScale: 0.01f;
-        currentScale = (e1.getX()-e2.getX())>0?-currentScale:currentScale;
+        currentScale=velocityX/4000+1;
+        if (e1.getX()-e2.getX()>0){
+            currentScale=currentScale-1;
+        }
         matrix.reset();
         matrix.setScale(currentScale, currentScale);
 
-//        BitmapDrawable tmp = (BitmapDrawable)
-//                iv.getDrawable();
-//        if(!tmp.getBitmap().isRecycled()){
-//            tmp.getBitmap().recycle();
-//        }
         Bitmap bitmap2 = Bitmap.createBitmap(bitmap, 0, 0
                 , width, height, matrix, true);
         iv.setImageBitmap(bitmap2);
         return true;
+//        float x1 = e1.getX();
+//        float x2 = e2.getX();
+//        if(x2-x1>=50)
+//        {
+//            if(index>0)
+//            {
+//                iv.setImageResource(img[--index]);
+//            }
+//        }else if(x2-x1<=-50)
+//        {
+//            if(index<img.length-1)
+//            {
+//                iv.setImageResource(img[++index]);
+//            }
+//        }
+//        return true;
     }
 }

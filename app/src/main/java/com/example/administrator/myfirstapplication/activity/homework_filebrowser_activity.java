@@ -1,5 +1,7 @@
 package com.example.administrator.myfirstapplication.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -42,7 +44,16 @@ public class homework_filebrowser_activity extends BaseActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (currentFiles[position].isFile()) return;
+                if (currentFiles[position].isFile()){
+                    String name=currentFiles[position].getName();
+                    String path=currentFiles[position].getPath();
+                    File f=new File(path);
+                    Intent i=new Intent();
+                    i.setAction(Intent.ACTION_VIEW);
+                    i.setDataAndType(Uri.fromFile(f),getMIMEType(name));
+                    startActivity(i);
+                    return;
+                }
                 File[] tmp = currentFiles[position].listFiles();
                 if (tmp == null || tmp.length == 0) {
                     Toast.makeText(homework_filebrowser_activity.this, "当前路径不可访问或该路径下没有文件", Toast.LENGTH_SHORT).show();
@@ -90,5 +101,17 @@ public class homework_filebrowser_activity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private String getMIMEType(String name) {
+        String houzui=name.substring(name.lastIndexOf("."));
+        String type="";
+        String[][] MIME_MapTable={{".html","text/html"},{".jpg","image/jpeg" },{".mp3","audio/mp3"},{".png","image/png"},
+                {".xml","text/xml" }};
+        String end=houzui;
+        for(int i=0;i<MIME_MapTable.length;i++){ //MIME_MapTable??在这里你一定有疑问，这个MIME_MapTable是什么？
+            if(end.equals(MIME_MapTable[i][0]))
+                type = MIME_MapTable[i][1];
+        }
+        return type;
     }
 }

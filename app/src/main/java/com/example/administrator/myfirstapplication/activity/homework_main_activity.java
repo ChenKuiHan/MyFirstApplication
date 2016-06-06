@@ -34,8 +34,9 @@ public class homework_main_activity extends BaseActivity {
             homework28_pad_activity.class, homework30_baidu_activity.class,
             homework_huaxian_activity.class, homework_boom_activity.class,
             homework_autologin_activity.class, homework32_db_activity.class,
-            homework_filebrowser_activity.class,
-            homework33_shoushi_activity.class,homework_gotoTEL_activity.class,
+            homework_filebrowser_activity.class, homework33_shoushi_activity.class,
+            homework34_shoushi2_activity.class,homework35_diyshoushi_activity.class,
+            homework_contentresolver_activity.class,homework_gotoTEL_activity.class,
             homework_seekbar_activity.class, homework36_yuyin_activity.class};
 
     String[] s = {"作业1：helloworld", "作业2：放个图片", "作业3：手机屏幕信息", "作业4：图片轮循",
@@ -43,13 +44,13 @@ public class homework_main_activity extends BaseActivity {
             "作业7：霓虹灯闪烁", "作业8：十字图片", "作业9：计算器", "作业10：仿qq2",
             "作业10：搜索", "作业11&12：单选复选/验证码按钮", "作业12_1：弹球", "作业12_2&13_4&16：api查菜谱，点击进入详情，listview",
             "作业12_2：api查归属地", "作业13：可展开的list", "作业13_2:Spinner", "作业13_3：自动播放图片",
-            "作业14：viewswitcher3秒切换", "作业15：图片改变透明度", "作业15_2&18：自动查找", "作业17：gridview两列",
+            "作业14：viewswitcher3秒切换", "作业15：图片改变透明度，局部显示", "作业15_2&18：自动查找", "作业17：gridview两列",
             "作业19：生日","作业20：tabs","作业22：menu", "作业23：dailog多选",
             "作业23_3：自动改变语言","作业24：打电话，发短信", "作业24_1：点击获取联系人信息","作业25：expandlistview传参",
             "作业26：屏幕方向对应布局", "作业27：网络下载并打开", "作业28：分辨手机，pad","作业24_2&30：打开百度",
             "作业30_2：画线", "作业30_3：爆炸,补间动画", "作业31：自动登录", "作业32：数据库操作",
-            "作业32_1：文件浏览器",
-            "作业33：手势缩放图片", "作业：转到通讯录", "作业：bar", "作业36：百度语音"};
+            "作业32_1：文件浏览器", "作业33：手势缩放图片", "作业34：左右滑换页","作业35&35_1：自定义手势",
+            "作业：resolver","作业：转到通讯录", "作业：bar", "作业36：百度语音"};
 
     @Override
     protected void contectview(Bundle savedInstanceState) {

@@ -117,7 +117,6 @@ public class homework_download_activity extends BaseActivity {
             pd.dismiss();
             Toast.makeText(homework_download_activity.this, "完成", Toast.LENGTH_SHORT).show();
             Intent i=new Intent();
-            i.setType("image/jpeg");
             File f=new File("/mnt/sdcard/"+name+houzui);
             i.setAction(Intent.ACTION_VIEW);
             i.setDataAndType(Uri.fromFile(f), getMIMEType(houzui));
