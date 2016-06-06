@@ -74,6 +74,7 @@
         <activity android:name=".activity.homework30_baidu_activity"></activity>
         <activity android:name=".activity.homework32_db_activity"></activity>
         <activity android:name=".activity.homework32_db_edit_avtivity"></activity>
+        <activity android:name=".activity.homework_filebrowser_activity"></activity>
         <activity android:name=".activity.homework33_shoushi_activity"></activity>
         <activity android:name=".activity.homework_autosaveset_activity"></activity>
         <activity android:name=".activity.homework_huaxian_activity"></activity>
@@ -82,5 +83,8 @@
         <activity android:name=".activity.homework_autologin_activity2"></activity>
         <activity android:name=".activity.homework_download_activity"></activity>
         <activity android:name=".activity.homework36_yuyin_activity"></activity>
+        <activity android:name=".activity.a">
+
+        </activity>
     </application>
 </manifest>

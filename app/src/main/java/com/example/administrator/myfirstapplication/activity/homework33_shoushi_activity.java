@@ -68,14 +68,19 @@ public class homework33_shoushi_activity extends BaseActivity implements Gesture
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        velocityX = velocityX > 4000 ? 4000 : velocityX;
-        velocityX = velocityX < -4000 ? -4000 : velocityX;
+//        velocityX = velocityX > 4000 ? 4000 : velocityX;
+//        velocityX = velocityX < -4000 ? -4000 : velocityX;
         currentScale += currentScale * velocityX / 4000.0f;
         currentScale = currentScale > 0.01 ? currentScale: 0.01f;
+        currentScale = (e1.getX()-e2.getX())>0?-currentScale:currentScale;
         matrix.reset();
-        matrix.setScale(currentScale, currentScale, 160, 200);
-        BitmapDrawable tmp = (BitmapDrawable)
-                iv.getDrawable();
+        matrix.setScale(currentScale, currentScale);
+
+//        BitmapDrawable tmp = (BitmapDrawable)
+//                iv.getDrawable();
+//        if(!tmp.getBitmap().isRecycled()){
+//            tmp.getBitmap().recycle();
+//        }
         Bitmap bitmap2 = Bitmap.createBitmap(bitmap, 0, 0
                 , width, height, matrix, true);
         iv.setImageBitmap(bitmap2);

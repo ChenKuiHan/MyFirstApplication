@@ -22,7 +22,6 @@ import java.io.InputStream;
  */
 public class homework36_yuyin_activity extends BaseActivity  implements SpeechSynthesizerListener {
     EditText et;
-    private static final String TAG = "MainActivity";
     private SpeechSynthesizer ss;
     private String datfiledir;
     private static final String SPEECH_FEMALE_MODEL_NAME = "bd_etts_speech_female.dat";
@@ -41,7 +40,7 @@ public class homework36_yuyin_activity extends BaseActivity  implements SpeechSy
     private void initsysfile() {
         if (datfiledir == null) {
             String sdcardPath = Environment.getExternalStorageDirectory().toString();
-            datfiledir = sdcardPath + "/" + "yuyintext";
+            datfiledir = "/mnt/sdcard/yuyintext";
         }
         File file = new File(datfiledir);
         if (!file.exists()) {
@@ -70,6 +69,7 @@ public class homework36_yuyin_activity extends BaseActivity  implements SpeechSy
         ss.setAppId("8220563");
         ss.setApiKey("FKRWRHlsUp1LPIk8bjhHe9YC", "0bfcf0f0a6085a49e6ed58b1d6bfd4f8");
         ss.setParam(SpeechSynthesizer.PARAM_SPEAKER, "3");
+        ss.setParam(SpeechSynthesizer.PARAM_VOLUME, "7");
         ss.setParam(SpeechSynthesizer.PARAM_MIX_MODE, SpeechSynthesizer.MIX_MODE_DEFAULT);
         ss.initTts(TtsMode.MIX);
         ss.loadEnglishModel(datfiledir + "/" + ENGLISH_TEXT_MODEL_NAME, datfiledir + "/" + ENGLISH_SPEECH_FEMALE_MODEL_NAME);
