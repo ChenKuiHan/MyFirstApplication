@@ -88,7 +88,6 @@
         <activity android:name=".activity.homework_autologin_activity2"></activity>
         <activity android:name=".activity.homework_download_activity"></activity>
         <activity android:name=".activity.homework_contentresolver_activity"></activity>
-
         <activity android:name=".activity.a">
 
         </activity>
