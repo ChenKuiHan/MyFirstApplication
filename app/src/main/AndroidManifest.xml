@@ -86,6 +86,7 @@
         <activity android:name=".activity.homework40_music_activity"></activity>
         <service android:name=".activity.homework40_music_service"></service>
         <activity android:name=".activity.homework41_vibrator_activity"></activity>
+        <activity android:name=".activity.homework42_alarm_activity"></activity>
         <activity android:name=".activity.homework_autosaveset_activity"></activity>
         <activity android:name=".activity.homework_huaxian_activity"></activity>
         <activity android:name=".activity.homework_boom_activity"></activity>
