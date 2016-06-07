@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -81,6 +82,10 @@
         <activity android:name=".activity.homework35_diyshoushi_activity2"></activity>
         <activity android:name=".activity.homework36_yuyin_activity"></activity>
         <activity android:name=".activity.homework36_yuyin2_activity"></activity>
+        <activity android:name=".activity.homework38_smssend_activity"></activity>
+        <activity android:name=".activity.homework40_music_activity"></activity>
+        <service android:name=".activity.homework40_music_service"></service>
+        <activity android:name=".activity.homework41_vibrator_activity"></activity>
         <activity android:name=".activity.homework_autosaveset_activity"></activity>
         <activity android:name=".activity.homework_huaxian_activity"></activity>
         <activity android:name=".activity.homework_boom_activity"></activity>
