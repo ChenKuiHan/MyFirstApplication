@@ -1,6 +1,5 @@
 package com.example.administrator.myfirstapplication.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -66,20 +65,6 @@ public class homework11_radio_activity extends BaseActivity {
                 }
             }
         });
-//        RadioGroup rp2= (RadioGroup) findViewById(R.id.radiogroup2);
-//        rp2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener(){
-//
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                if(checkedId==R.id.zhuanke){
-//                    Toast.makeText(homework11_radio_activity.this, "选择了专科", Toast.LENGTH_SHORT).show();
-//                }else if(checkedId==R.id.zhuanke){
-//                    Toast.makeText(homework11_radio_activity.this, "选择了本科", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(homework11_radio_activity.this, "选择了研究生", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
     }
     public void send(View view){
 
