@@ -1,11 +1,15 @@
 package com.example.administrator.myfirstapplication.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.administrator.myfirstapplication.R;
 
@@ -57,6 +61,18 @@ public class homework_main_activity extends BaseActivity {
             "作业36：百度语音识别","作业38：短信群发","作业40：播放音乐","作业41：震动",
             "作业42：设置闹钟","作业：放视频"};
 
+    private ServiceConnection con=new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    };
+
     @Override
     protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_main);
@@ -71,5 +87,9 @@ public class homework_main_activity extends BaseActivity {
                 startActivity(i);
             }
         });
+        Intent i=new Intent(this,homework_phonelisten_service.class);
+        bindService(i,con,BIND_AUTO_CREATE);
+        Toast.makeText(homework_main_activity.this, "来电监听已启动", Toast.LENGTH_SHORT).show();
+        Toast.makeText(homework_main_activity.this, "短信拦截已启动", Toast.LENGTH_SHORT).show();
     }
 }
