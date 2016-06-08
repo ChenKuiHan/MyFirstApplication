@@ -51,6 +51,7 @@ public class homework_filebrowser_activity extends BaseActivity {
                     Intent i=new Intent();
                     i.setAction(Intent.ACTION_VIEW);
                     i.setDataAndType(Uri.fromFile(f),getMIMEType(name));
+                    Toast.makeText(homework_filebrowser_activity.this, Uri.fromFile(f).toString(), Toast.LENGTH_SHORT).show();
                     startActivity(i);
                     return;
                 }
@@ -108,7 +109,7 @@ public class homework_filebrowser_activity extends BaseActivity {
         String[][] MIME_MapTable={{".html","text/html"},{".jpg","image/jpeg" },{".mp3","audio/mp3"},{".png","image/png"},
                 {".xml","text/xml" }};
         String end=houzui;
-        for(int i=0;i<MIME_MapTable.length;i++){ //MIME_MapTable??在这里你一定有疑问，这个MIME_MapTable是什么？
+        for(int i=0;i<MIME_MapTable.length;i++){
             if(end.equals(MIME_MapTable[i][0]))
                 type = MIME_MapTable[i][1];
         }

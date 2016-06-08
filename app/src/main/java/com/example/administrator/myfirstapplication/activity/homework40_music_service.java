@@ -29,7 +29,7 @@ public class homework40_music_service extends Service{
     @Override
     public IBinder onBind(Intent intent) {
         String s=intent.getStringExtra("name");
-        mp=MediaPlayer.create(this, Uri.parse("/mnt/sdcard/Music/"+s));
+        mp=MediaPlayer.create(this, Uri.parse(s));
         mp.start();
         return null;
     }

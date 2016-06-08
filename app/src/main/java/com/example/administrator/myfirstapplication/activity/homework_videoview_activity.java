@@ -15,13 +15,23 @@ import java.io.File;
 public class homework_videoview_activity extends BaseActivity {
     VideoView vv;
     MediaController mc;
+    String path="";
+    File video;
     @Override
     protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_video);
         getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        if(getIntent().getStringExtra("path")!=null){
+            path=getIntent().getStringExtra("path");
+        }
         vv= (VideoView) findViewById(R.id.videoView);
         mc=new MediaController(this);
-        File video=new File("/mnt/sdcard/mm.mp4");
+        if(path.equals("")){
+            video=new File("/mnt/sdcard/mm.mp4");
+        }else{
+            video=new File(path);
+        }
+
         if(video.exists()){
             vv.setVideoPath(video.getAbsolutePath());
             vv.setMediaController(mc);

@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
@@ -35,6 +36,12 @@ public class homework40_music_activity extends BaseActivity {
     @Override
     protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework40_playmusic);
+        if(getIntent().getData()!=null){
+            Uri u=getIntent().getData();
+            Intent i=new Intent(this,homework40_music_service.class);
+            i.putExtra("name",u.toString());
+            bindService(i,con,BIND_AUTO_CREATE);
+        }
         et= (EditText) findViewById(R.id.musicname);
         am= (AudioManager) getSystemService(Service.AUDIO_SERVICE);
         sb= (SeekBar) findViewById(R.id.seekBar2);
@@ -63,7 +70,7 @@ public class homework40_music_activity extends BaseActivity {
     }
     public void startplay(View view){
         Intent i=new Intent(this,homework40_music_service.class);
-        i.putExtra("name",et.getText().toString());
+        i.putExtra("name","/mnt/sdcard/Music/"+et.getText().toString());
         bindService(i,con,BIND_AUTO_CREATE);
     }
     public void stopplay(View view){
