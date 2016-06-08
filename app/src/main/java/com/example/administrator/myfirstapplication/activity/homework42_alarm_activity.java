@@ -40,10 +40,10 @@ public class homework42_alarm_activity extends BaseActivity {
                         AlarmManager am= (AlarmManager) getSystemService(ALARM_SERVICE);
                         Calendar c=Calendar.getInstance();
                         c.setTimeInMillis(System.currentTimeMillis());
-                        c.set(Calendar.HOUR,hourOfDay);
+                        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
                         c.set(Calendar.MINUTE,minute);
-                        am.set(AlarmManager.ELAPSED_REALTIME,c.getTimeInMillis(),pi);
-                        Toast.makeText(homework42_alarm_activity.this, c.getTimeInMillis()+"", Toast.LENGTH_SHORT).show();
+                        am.set(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pi);
+                        Toast.makeText(homework42_alarm_activity.this, (c.getTimeInMillis()-System.currentTimeMillis())/1000+"秒后启动", Toast.LENGTH_SHORT).show();
                     }
                 },c.get(Calendar.HOUR_OF_DAY),c.get(Calendar.MINUTE),false).show();
             }

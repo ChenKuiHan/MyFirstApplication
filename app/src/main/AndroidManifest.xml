@@ -103,6 +103,7 @@
         </receiver>
         <service android:name=".activity.homework_phonelisten_service"></service>
         <activity android:name=".activity.homework_videoview_activity"></activity>
+        <activity android:name=".activity.homework_mediarecorder_activity"></activity>
         <activity android:name=".activity.a">
 
         </activity>

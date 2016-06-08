@@ -44,7 +44,7 @@ public class homework_main_activity extends BaseActivity {
             homework_seekbar_activity.class, homework36_yuyin_activity.class,
             homework36_yuyin2_activity.class,homework38_smssend_activity.class,
             homework40_music_activity.class,homework41_vibrator_activity.class,
-            homework42_alarm_activity.class,homework_videoview_activity.class};
+            homework42_alarm_activity.class,homework_videoview_activity.class,homework_mediarecorder_activity.class};
 
     String[] s = {"作业1：helloworld", "作业2：放个图片", "作业3：手机屏幕信息", "作业4：图片轮循",
             "作业5：画心", "作业6：表格布局登录", "作业6：仿qq", "作业6：输入电话号",
@@ -59,7 +59,7 @@ public class homework_main_activity extends BaseActivity {
             "作业32_1：文件浏览器", "作业33：手势缩放图片", "作业34：左右滑换页","作业35&35_1：自定义手势",
             "作业：resolver","作业：转到通讯录", "作业：bar", "作业36：百度语音合成",
             "作业36：百度语音识别","作业38：短信群发","作业40：播放音乐","作业41：震动",
-            "作业42：设置闹钟","作业：放视频"};
+            "作业42：设置闹钟","作业：放视频","作业：录音"};
 
     private ServiceConnection con=new ServiceConnection() {
         @Override
