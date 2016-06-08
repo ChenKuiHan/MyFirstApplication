@@ -21,8 +21,7 @@ public class homework_mediarecorder_activity extends BaseActivity {
     protected void contectview(Bundle savedInstanceState) {
         setContentView(R.layout.homework_media);
     }
-    public void record(View view)
-    {
+    public void record(View view) {
         file = new File("/mnt/sdcard/sound.amr");
         try{
             recorder = new MediaRecorder();
@@ -38,10 +37,8 @@ public class homework_mediarecorder_activity extends BaseActivity {
         }
     }
 
-    public void stop(View view)
-    {
-        if(file != null && file.exists())
-        {
+    public void stop(View view) {
+        if(file != null && file.exists()) {
             recorder.stop();
             recorder.release();
             recorder = null;
@@ -54,8 +51,7 @@ public class homework_mediarecorder_activity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        if(file != null && file.exists())
-        {
+        if(file != null && file.exists()) {
             recorder.stop();
             recorder.release();
             recorder = null;
