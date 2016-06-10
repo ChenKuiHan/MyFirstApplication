@@ -84,8 +84,8 @@
         <activity android:name=".activity.homework34_shoushi2_activity"></activity>
         <activity android:name=".activity.homework35_diyshoushi_activity"></activity>
         <activity android:name=".activity.homework35_diyshoushi_activity2"></activity>
-        <activity android:name=".activity.homework36_yuyin_activity"></activity>
-        <activity android:name=".activity.homework36_yuyin2_activity"></activity>
+        <activity android:name=".activity.homework_sdk_yuyin_activity"></activity>
+        <activity android:name=".activity.homework_sdk_yuyin2_activity"></activity>
         <activity android:name=".activity.homework38_smssend_activity"></activity>
         <activity android:name=".activity.homework40_music_activity"
             android:label="我的app">
@@ -115,6 +115,13 @@
         <activity android:name=".activity.homework_videoview_activity"></activity>
         <activity android:name=".activity.homework_mediarecorder_activity"></activity>
         <activity android:name=".activity.homework_mediavideo_activity"></activity>
+        <activity android:name=".activity.homework_sdk_weibo_main_activity"></activity>
+        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" >
+        </activity>
+        <activity android:name=".activity.homework_sdk_weibo_share_activity"></activity>
         <activity android:name=".activity.a">
 
         </activity>

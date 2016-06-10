@@ -6,7 +6,7 @@ import com.example.administrator.myfirstapplication.R;
 /**
  * Created by Administrator on 2016/6/6 0006.
  */
-public class homework36_yuyin2_activity extends BaseActivity  {
+public class homework_sdk_yuyin2_activity extends BaseActivity  {
 
 
     @Override

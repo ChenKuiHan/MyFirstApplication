@@ -1,1 +1,1 @@
-include ':app', ':airplane'
+include ':app', ':airplane', ':weibosdk'

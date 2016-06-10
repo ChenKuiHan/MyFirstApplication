@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">homework</string>
     <string name="hello">你好</string>
+    <string name="com_sina_weibo_sdk_login_with_weibo_account">用微博登录</string>
+    <string name="com_sina_weibo_sdk_login">登录</string>
+    <string name="com_sina_weibo_sdk_logout">注销</string>
+    <string name="weibosdk_demo_token_to_string_format_1">Token：%1$s \n有效期：%2$s</string>
+    <string name="weibosdk_demo_toast_auth_canceled">取消授权</string>
+    <string name="weibosdk_demo_token_info">Token 信息：</string>
+    <string name="weibosdk_demo_logout_success">已注销</string>
+    <string name="weibosdk_demo_logout_failed">注销失败</string>
 </resources>

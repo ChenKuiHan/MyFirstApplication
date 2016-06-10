@@ -20,7 +20,7 @@ import java.io.InputStream;
 /**
  * Created by eternl on 2016/6/4.
  */
-public class homework36_yuyin_activity extends BaseActivity  implements SpeechSynthesizerListener {
+public class homework_sdk_yuyin_activity extends BaseActivity  implements SpeechSynthesizerListener {
     EditText et;
     private SpeechSynthesizer ss;
     private String datfiledir;
