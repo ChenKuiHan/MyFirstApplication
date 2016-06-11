@@ -77,7 +77,11 @@ public class homework_sdk_weibo_share_activity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 String message=et.getText().toString();
-                mStatusesAPI.upload(message, bitmap, null, null, mListener);
+                if(bitmap==null){
+                    mStatusesAPI.update(message, null, null, mListener);
+                }else{
+                    mStatusesAPI.upload(message, bitmap, null, null, mListener);
+                }
             }
         });
     }
