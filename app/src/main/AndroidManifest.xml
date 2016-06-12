@@ -122,6 +122,8 @@
             android:exported="false" >
         </activity>
         <activity android:name=".activity.homework_sdk_weibo_share_activity"/>
+        <activity android:name=".activity.homework_gupiao_activity"/>
+        <activity android:name=".activity.homework_upload_activity"/>
         <activity android:name=".activity.a">
 
         </activity>
