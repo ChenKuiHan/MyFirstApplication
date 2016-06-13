@@ -124,6 +124,8 @@
         <activity android:name=".activity.homework_sdk_weibo_share_activity"/>
         <activity android:name=".activity.homework_gupiao_activity"/>
         <activity android:name=".activity.homework_upload_activity"/>
+        <activity android:name=".activity.homework_yaoyiyao_activity"/>
+        <activity android:name=".activity.homework_zhinanzhen_activity"/>
         <activity android:name=".activity.a">
 
         </activity>
