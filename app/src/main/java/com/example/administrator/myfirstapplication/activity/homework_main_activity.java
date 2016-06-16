@@ -48,7 +48,8 @@ public class homework_main_activity extends BaseActivity {
             homework_mediarecorder_activity.class,homework_mediavideo_activity.class,
             homework_sdk_weibo_main_activity.class,homework_gupiao_activity.class,
             homework_upload_activity.class,homework_yaoyiyao_activity.class,
-            homework_zhinanzhen_activity.class};
+            homework_zhinanzhen_activity.class,homework_GPS_activity.class,
+            homework_baidumap_activity.class};
 
     String[] s = {"作业1：helloworld", "作业2：放个图片", "作业3：手机屏幕信息", "作业4：图片轮循",
             "作业5：画心", "作业6：表格布局登录", "作业6：仿qq", "作业6：输入电话号",
@@ -65,7 +66,7 @@ public class homework_main_activity extends BaseActivity {
             "作业36：百度语音识别","作业38：短信群发","作业40：播放音乐","作业41：震动",
             "作业42：设置闹钟","作业：放视频","作业：录音","作业：录视频",
             "作业：微博","作业：股票查询","作业：上传","作业：摇一摇",
-            "作业：指南针"};
+            "作业：指南针","作业：GPS","作业：百度地图"};
 
     private ServiceConnection con=new ServiceConnection() {
         @Override
