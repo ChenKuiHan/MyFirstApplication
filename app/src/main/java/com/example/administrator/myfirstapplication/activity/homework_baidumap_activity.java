@@ -138,12 +138,14 @@ public class homework_baidumap_activity extends Activity {
         List<LatLng> points = new ArrayList<LatLng>();
         List<Integer> index = new ArrayList<Integer>();
 
-        c = helper.getReadableDatabase().query("student",null,null,null,null,null,null);
-        while (c.moveToNext()){
-            LatLng point1 = new LatLng(c.getDouble(c.getColumnIndex("wei")), c.getDouble(c.getColumnIndex("jing")));
+        if(c!=null){
+            c = helper.getReadableDatabase().query("student",null,null,null,null,null,null);
+            while (c.moveToNext()){
+                LatLng point1 = new LatLng(c.getDouble(c.getColumnIndex("wei")), c.getDouble(c.getColumnIndex("jing")));
 
-            points.add(point1);
-            index.add(0);
+                points.add(point1);
+                index.add(0);
+            }
         }
 
         OverlayOptions ooPolyline = new PolylineOptions().width(15).color(0xAAFF0000).points(points).customTextureList(customList).textureIndex(index);
