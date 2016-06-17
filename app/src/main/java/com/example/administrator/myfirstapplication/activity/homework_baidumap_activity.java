@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,6 +22,7 @@ import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.Polyline;
 import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.CoordinateConverter;
@@ -45,7 +47,8 @@ public class homework_baidumap_activity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homework_baidumap);
-        db=helper.getWritableDatabase();
+        helper = new homework_baidumap_helper(this, "point.db", null, 1);
+        db = helper.getWritableDatabase();
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this,
@@ -85,7 +88,7 @@ public class homework_baidumap_activity extends Activity {
 
             }
         });
-        Intent i=new Intent(this,homework_baidumap_service.class);
+        Intent i = new Intent(this, homework_baidumap_service.class);
         startService(i);
     }
 
@@ -104,12 +107,13 @@ public class homework_baidumap_activity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        onDestroy();
+        mMapView.onDestroy();
     }
+
     public void updateView(Location l) {
-        if(l!=null) {
+        if (l != null) {
             LatLng point = new LatLng(l.getLatitude(), l.getLongitude());
-            CoordinateConverter converter  = new CoordinateConverter();
+            CoordinateConverter converter = new CoordinateConverter();
             converter.from(CoordinateConverter.CoordType.GPS);
             converter.coord(point);
             LatLng desLatLng = converter.convert();
@@ -120,7 +124,7 @@ public class homework_baidumap_activity extends Activity {
                     .position(desLatLng)
                     .icon(bitmap);
             mBaiduMap.addOverlay(option);
-        }else{
+        } else {
             LatLng point = new LatLng(39.963175, 116.400244);
             BitmapDescriptor bitmap = BitmapDescriptorFactory
                     .fromResource(R.drawable.bullet_04);
@@ -129,27 +133,33 @@ public class homework_baidumap_activity extends Activity {
                     .icon(bitmap);
             mBaiduMap.addOverlay(option);
         }
-        //构造纹理资源
-        BitmapDescriptor custom1 = BitmapDescriptorFactory
-                .fromResource(R.drawable.arrow);
-        List<BitmapDescriptor> customList = new ArrayList<BitmapDescriptor>();
-        customList.add(custom1);
 
+        List<Integer> colors = new ArrayList<>();
+        colors.add(Color.BLUE);
         List<LatLng> points = new ArrayList<LatLng>();
         List<Integer> index = new ArrayList<Integer>();
 
-        if(c!=null){
-            c = helper.getReadableDatabase().query("student",null,null,null,null,null,null);
-            while (c.moveToNext()){
-                LatLng point1 = new LatLng(c.getDouble(c.getColumnIndex("wei")), c.getDouble(c.getColumnIndex("jing")));
 
-                points.add(point1);
-                index.add(0);
-            }
+        c = helper.getReadableDatabase().query("point", null, null, null, null, null, null);
+
+        while (c.moveToNext()) {
+            LatLng point1 = new LatLng(c.getDouble(c.getColumnIndex("wei")), c.getDouble(c.getColumnIndex("jing")));
+
+            points.add(point1);
+            index.add(0);
         }
+        if(points.size()<2){
+            LatLng point3 = new LatLng(40.222222,123.222222);
+            LatLng point4 = new LatLng(40.999999,123.999999);
+            points.add(point3);
+            index.add(0);
+            points.add(point4);
+            index.add(0);
+        }
+        OverlayOptions ooPolyline = new PolylineOptions().width(10)
+                .colorsValues(colors).points(points);
+        Polyline mPolyline = (Polyline) mBaiduMap.addOverlay(ooPolyline);
 
-        OverlayOptions ooPolyline = new PolylineOptions().width(15).color(0xAAFF0000).points(points).customTextureList(customList).textureIndex(index);
 
-        mBaiduMap.addOverlay(ooPolyline);
     }
 }

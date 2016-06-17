@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class homework_baidumap_helper extends SQLiteOpenHelper {
 
-    public static final String CREATE_STUDENT_TABLE = "create table point(_id integer primary key auto_increment,jing decimal,wei integer)";
+    public static final String CREATE_STUDENT_TABLE = "create table point(_id integer primary key ,jing decimal,wei integer)";
 
     public homework_baidumap_helper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

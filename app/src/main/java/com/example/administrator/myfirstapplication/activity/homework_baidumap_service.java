@@ -29,6 +29,7 @@ public class homework_baidumap_service extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        helper=new homework_baidumap_helper(this,"point.db",null,1);
         db=helper.getWritableDatabase();
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -72,9 +73,12 @@ public class homework_baidumap_service extends Service {
         return null;
     }
     public void record(Location location){
-        ContentValues c = new ContentValues();
-        c.put("jing",location.getLongitude());
-        c.put("wei",location.getLatitude());
-        db.insert("point",null,c);
+        if(location!=null){
+            ContentValues c = new ContentValues();
+            c.put("jing",location.getLongitude());
+            c.put("wei",location.getLatitude());
+            db.insert("point",null,c);
+        }
+
     }
 }

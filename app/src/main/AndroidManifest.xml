@@ -136,6 +136,7 @@
         <activity android:name=".activity.homework_GPS_activity"/>
         <activity android:name=".activity.homework_baidumap_activity"
             android:theme="@style/AppTheme1"/>
+        <service android:name=".activity.homework_baidumap_service"/>
         <activity android:name=".activity.a">
 
         </activity>
