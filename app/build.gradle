@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -26,6 +27,9 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'com.squareup.retrofit2:retrofit:2.0.1'
     compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.jakewharton:butterknife:8.0.1'
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile files('libs/com.baidu.tts_2.2.6.20160505_a2af8d6_beta.jar')
     compile files('libs/galaxy-v2.0.jar')
     compile files('libs/VoiceRecognition-2.0.1.jar')

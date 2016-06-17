@@ -96,8 +96,7 @@ public class homework_main_activity extends BaseActivity {
         });
         Intent i=new Intent(this,homework_phonelisten_service.class);
         bindService(i,con,BIND_AUTO_CREATE);
-        Intent i1 = new Intent(this, homework_baidumap_service.class);
-        startService(i1);
+
         Toast.makeText(homework_main_activity.this, "来电监听已启动", Toast.LENGTH_SHORT).show();
         Toast.makeText(homework_main_activity.this, "短信拦截已启动", Toast.LENGTH_SHORT).show();
     }

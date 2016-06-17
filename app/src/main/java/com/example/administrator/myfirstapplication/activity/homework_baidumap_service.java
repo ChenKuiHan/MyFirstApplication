@@ -25,12 +25,13 @@ public class homework_baidumap_service extends Service {
     LocationManager lm;
     SQLiteDatabase db;
     homework_baidumap_helper helper;
+    LocationListener listener;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        helper=new homework_baidumap_helper(this,"point.db",null,1);
-        db=helper.getWritableDatabase();
+        helper = new homework_baidumap_helper(this, "point.db", null, 1);
+        db = helper.getWritableDatabase();
         lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this,
@@ -39,7 +40,7 @@ public class homework_baidumap_service extends Service {
         }
         Location l = lm.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         record(l);
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 10, new LocationListener() {
+        listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
                 record(location);
@@ -64,7 +65,8 @@ public class homework_baidumap_service extends Service {
             public void onProviderDisabled(String provider) {
 
             }
-        });
+        };
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, listener);
     }
 
     @Nullable
@@ -72,13 +74,23 @@ public class homework_baidumap_service extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-    public void record(Location location){
-        if(location!=null){
-            ContentValues c = new ContentValues();
-            c.put("jing",location.getLongitude());
-            c.put("wei",location.getLatitude());
-            db.insert("point",null,c);
-        }
 
+    public void record(Location location) {
+        if (location != null) {
+            ContentValues c = new ContentValues();
+            c.put("jing", location.getLongitude());
+            c.put("wei", location.getLatitude());
+            c.put("time", System.currentTimeMillis());
+            db.insert("point", null, c);
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        lm.removeUpdates(listener);
     }
 }
